@@ -4,33 +4,26 @@ let rows;
 let button;
 let words = "Shuffle";
 let shakey = false;
+let modal = [];
+let overlayColour = 0;
 
 function setup() {
     var canvas = createCanvas(500, 500);
     canvas.parent('sketchHere')
+    modal[0] = new Modal();
+
+    button = select("#shuffleButton")
+    button.mousePressed(shakeNow);
 
     for (let i = 0; i < 10; i++) {
         rectangles[i] = [];
         for (let j = 0; j < 3; j++) {
-            rectangles[i][j] = new Rectangle(i * 30 + 100, j * 65 + 100, 25, 60);
+            rectangles[i][j] = new Rectangle(i * 30 + 100, j * 65 + 150, 25, 60);
         }
     }
-
-    button = select("#shuffleButton")
-    button.mousePressed(shakeNow);
 }
 
-function shakeNow() {
-    shakey = !shakey
-    if (shakey) {
-        buttonLabel = "Stop"
-        button.html(buttonLabel)
-    } else {
-        buttonLabel = "Shuffle"
-        button.html(buttonLabel)
-    }
 
-}
 
 
 function draw() {
@@ -45,6 +38,22 @@ function draw() {
             rectangles[i][j].drawRect();
         }
     }
+
+    fill(255, 255, 255, overlayColour);
+    overlay = rect(0, 0, width, height);
+    modal[0].drawModal();
+}
+
+function shakeNow() {
+    shakey = !shakey
+    if (shakey) {
+        buttonLabel = "Stop"
+        button.html(buttonLabel)
+    } else {
+        buttonLabel = "Shuffle"
+        button.html(buttonLabel)
+    }
+
 }
 
 function mousePressed() {
@@ -53,4 +62,5 @@ function mousePressed() {
             rectangles[i][j].clicked();
         }
     }
+    modal[0].hideModal();
 }

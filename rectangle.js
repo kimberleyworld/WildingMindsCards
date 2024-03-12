@@ -17,10 +17,10 @@ class Rectangle {
             mouseY < this.y + this.h &&
             this.hasBeenPressed == false
         ) {
-            this.colour = "blue";
+            this.colour = "Orange";
             this.Over = true;
         } else if (this.hasBeenPressed == true) {
-            this.colour = "red";
+            this.colour = "LightSalmon";
             this.over = false;
         } else {
             this.over = false;
@@ -35,9 +35,9 @@ class Rectangle {
             mouseY > this.y &&
             mouseY < this.y + this.h
         ) {
-            console.log("clicked");
-            this.colour = "red";
             this.hasBeenPressed = true;
+            overlayColour = 200;
+            modal[0].showModalBool()
         }
     }
 
@@ -50,6 +50,7 @@ class Rectangle {
 
     drawRect() {
         fill(this.colour);
+        noStroke();
         rect(this.x, this.y, this.w, this.h);
     }
 }
