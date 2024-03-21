@@ -33,7 +33,8 @@ class Rectangle {
             mouseX > this.x &&
             mouseX < this.x + this.w &&
             mouseY > this.y &&
-            mouseY < this.y + this.h
+            mouseY < this.y + this.h &&
+      this.hasBeenPressed == false
         ) {
             this.hasBeenPressed = true;
             overlayColour = 200;

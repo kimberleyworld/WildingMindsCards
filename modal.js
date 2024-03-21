@@ -8,38 +8,47 @@ class Modal {
         this.cy = this.y + 15;
         this.d = 20;
         this.showModal = false;
-        this.colourBody = "pink";
+        this.messageArray = messages;
+        this.newMessages = shuffle(this.messageArray);
+        this.modalCounter = 0;
+        this.r = null;
     }
 
     showModalBool() {
         this.showModal = true;
     }
 
-    hideModal() {
-        if (dist(mouseX, mouseY, this.cx, this.cy) < this.d / 2
-        ) {
-            console.log("close");
+    hideModal() {    //if you click the close button
+        if (dist(mouseX, mouseY, this.cx, this.cy) < this.d / 2) {
             this.showModal = false;
+            // change rest of the screen opacity back to normal
             overlayColour = 0;
+            // count how many times its been opened so we can display the next element in array
+            this.modalCounter++;
+            // remove the modal
+            removeElements()
         }
     }
 
-    changeColour() {
-        if (this.showModal == false) {
-            this.colourBody = color("rgba(230,5,0,0)");
-        } else {
-            this.colourBody = "pink";
-        }
+    shake() {
+        this.newMessages = shuffle(this.messageArray);
+        this.modalCounter = 0;
     }
 
     drawModal() {
         if (this.showModal == true) {
             push();
-            fill(this.colourBody);
+            fill("pink");
             noStroke();
+
+            let p = createElement("h1", this.newMessages[this.modalCounter]);
+            p.position(this.x + 10, this.y + 100);
+
+            //draw modal
             rect(this.x, this.y, this.w, this.h);
             fill("black");
             circle(this.cx, this.cy, this.d);
+
             pop();
         }
     }
