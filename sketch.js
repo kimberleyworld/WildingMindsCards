@@ -15,10 +15,10 @@ function setup() {
     button = select("#shuffleButton")
     button.mousePressed(shakeNow);
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         rectangles[i] = [];
         for (let j = 0; j < 3; j++) {
-            rectangles[i][j] = new Rectangle(i * 30 + 100, j * 65 + 150, 25, 60);
+            rectangles[i][j] = new Rectangle(i * 50 + 125, j * 80 + 140, 40, 70);
         }
     }
 }
@@ -28,7 +28,7 @@ function setup() {
 
 function draw() {
     background(225, 192, 203);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 3; j++) {
             if (shakey == true) {
                 rectangles[i][j].shake();
@@ -57,7 +57,7 @@ function shakeNow() {
 }
 
 function mousePressed() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 3; j++) {
             rectangles[i][j].clicked();
         }
