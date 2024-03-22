@@ -38,7 +38,7 @@ class Rectangle {
         ) {
             this.hasBeenPressed = true;
             overlayColour = 200;
-            modal[0].showModalBool()
+            modal.showModalBool()
         }
     }
 

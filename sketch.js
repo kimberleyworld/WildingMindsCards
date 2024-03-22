@@ -4,32 +4,14 @@ let rows;
 let button;
 let words = "Shuffle";
 let shakey = false;
-let modal = [];
+let modal;
 let overlayColour = 0;
 
-
-let messages = [
-  "pink",
-  "green",
-  "blue",
-  "purple",
-  "yellow",
-  "cat",
-  "sat",
-  "map",
-  "bat",
-  "rat",
-  "last",
-  "wrap",
-  "lap",
-  "collapse",
-  "rasp",
-];
 
 function setup() {
     var canvas = createCanvas(500, 500);
     canvas.parent('sketchHere')
-    modal[0] = new Modal(messages);
+    modal = new Modal(data);
 
     button = select("#shuffleButton")
     button.mousePressed(shakeNow);
@@ -60,7 +42,7 @@ function draw() {
 
     fill(255, 255, 255, overlayColour);
     overlay = rect(0, 0, width, height);
-    modal[0].drawModal();
+    modal.drawModal();
 }
 
 function shakeNow() {
@@ -68,7 +50,7 @@ function shakeNow() {
     if (shakey) {
         buttonLabel = "Stop"
         // shuffle the order of the array 
-        modal[0].shake();
+        modal.shake();
         button.html(buttonLabel)
     } else {
         buttonLabel = "Shuffle"
@@ -83,5 +65,5 @@ function mousePressed() {
             rectangles[i][j].clicked();
         }
     }
-    modal[0].hideModal();
+    modal.hideModal();
 }
