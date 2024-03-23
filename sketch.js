@@ -1,3 +1,5 @@
+
+
 let rectangles = [];
 let cols;
 let rows;
@@ -6,12 +8,33 @@ let words = "Shuffle";
 let shakey = false;
 let modal;
 let overlayColour = 0;
+let cityFarm;
 
+function preload() {
+    // cityFarm = loadImage("assets/cityFarm.jpg");
+    // beach = loadImage("assets/beach.jpg");
+    // birds = loadImage("assets/birds.jpg");
+    // blossom = loadImage("assets/blossom.jpg");
+    // freshFood = loadImage("assets/freshFood.jpg");
+    // fullMoon = loadImage("assets/fullMoon.jpg");
+    // gardening = loadImage("assets/gardening.jpg");
+    // openSkies = loadImage("assets/openSkies.jpg");
+    // rain = loadImage("assets/rain.jpg");
+    // seeds = loadImage("assets/seeds.jpg");
+    // stream = loadImage("assets/stream.jpg");
+    // sunrise = loadImage("assets/sunrise.jpg");
+    // swan = loadImage("assets/swan.jpg");
+    // waves = loadImage("assets/waves.jpg");
+    // trees = loadImage("assets/trees.jpg");
+}
 
 function setup() {
     var canvas = createCanvas(500, 500);
     canvas.parent('sketchHere')
     modal = new Modal(data);
+
+
+    
 
     button = select("#shuffleButton")
     button.mousePressed(shakeNow);
@@ -29,6 +52,7 @@ function setup() {
 
 function draw() {
     background(225, 192, 203);
+  
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 3; j++) {
             if (shakey == true) {
