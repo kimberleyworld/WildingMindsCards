@@ -10,31 +10,11 @@ let modal;
 let overlayColour = 0;
 let cityFarm;
 
-function preload() {
-    // cityFarm = loadImage("assets/cityFarm.jpg");
-    // beach = loadImage("assets/beach.jpg");
-    // birds = loadImage("assets/birds.jpg");
-    // blossom = loadImage("assets/blossom.jpg");
-    // freshFood = loadImage("assets/freshFood.jpg");
-    // fullMoon = loadImage("assets/fullMoon.jpg");
-    // gardening = loadImage("assets/gardening.jpg");
-    // openSkies = loadImage("assets/openSkies.jpg");
-    // rain = loadImage("assets/rain.jpg");
-    // seeds = loadImage("assets/seeds.jpg");
-    // stream = loadImage("assets/stream.jpg");
-    // sunrise = loadImage("assets/sunrise.jpg");
-    // swan = loadImage("assets/swan.jpg");
-    // waves = loadImage("assets/waves.jpg");
-    // trees = loadImage("assets/trees.jpg");
-}
 
 function setup() {
-    var canvas = createCanvas(500, 500);
+    var canvas = createCanvas(550, 550);
     canvas.parent('sketchHere')
     modal = new Modal(data);
-
-
-    
 
     button = select("#shuffleButton")
     button.mousePressed(shakeNow);
@@ -42,7 +22,7 @@ function setup() {
     for (let i = 0; i < 5; i++) {
         rectangles[i] = [];
         for (let j = 0; j < 3; j++) {
-            rectangles[i][j] = new Rectangle(i * 50 + 125, j * 80 + 140, 40, 70);
+            rectangles[i][j] = new Rectangle(i * 110 + 10, j * 160 + 30, 90, 140);
         }
     }
 }
@@ -51,8 +31,12 @@ function setup() {
 
 
 function draw() {
-    background(225, 192, 203);
-  
+
+
+    background("AntiqueWhite");
+    strokeWeight(6)
+
+
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 3; j++) {
             if (shakey == true) {
@@ -64,9 +48,19 @@ function draw() {
         }
     }
 
-    fill(255, 255, 255, overlayColour);
-    overlay = rect(0, 0, width, height);
+    noStroke()
+    fill(250, 235, 215, overlayColour);
+    overlay = rect(6, 27, width - 13, height - 84, 10);
     modal.drawModal();
+
+    push()
+    translate(mouseX, mouseY)
+    stroke(0, 0, 0);
+    fill("springGreen");
+    ellipse(0, 0, 25, 50);
+    line(0, 0, 0, 40);
+    pop()
+
 }
 
 function shakeNow() {

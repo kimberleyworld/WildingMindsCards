@@ -1,9 +1,9 @@
 class Modal {
     constructor(messages) {
-        this.w = width / 3;
+        this.w = width / 2 + 30;
         this.h = height / 2;
         this.x = width / 2 - this.w / 2;
-        this.y = height / 2 - this.h / 2;
+        this.y = height / 2 - this.h / 2 - 50;
         this.cx = this.x + this.w - 15;
         this.cy = this.y + 15;
         this.d = 20;
@@ -18,8 +18,8 @@ class Modal {
         console.log(this.newOrder)
         this.img = []
 
-        for(let i=0; i<16; i++){
-            this.img[i]=loadImage(this.messageArray.tarot_interpretations[i].pic)
+        for (let i = 0; i < 16; i++) {
+            this.img[i] = loadImage(this.messageArray.tarot_interpretations[i].pic)
         }
 
     }
@@ -49,23 +49,28 @@ class Modal {
 
     drawModal() {
         if (this.showModal == true) {
-            push();
-            fill("pink");
             noStroke();
+            fill("skyBlue");
+            rect(this.x, this.y + 70, this.w, this.h);
             let key = this.newOrder[this.modalCounter]
-            let p = createElement("h1", this.messageArray.tarot_interpretations[key].name);
-            console.log(this.newOrder[this.modalCounter])
-            p.position(windowWidth / 2, windowHeight / 2);
+
+
+            let p = createElement("h2", this.messageArray.tarot_interpretations[key].name);
+            p.position(windowWidth / 2 - this.w / 2 + 15, windowHeight / 2);
+
+
 
             //draw modal
-            rect(this.x, this.y, this.w, this.h);
-            console.log(this.modalCounter)
-            image(this.img[key], 50,50, 150, 150)
-
-            fill("black");
+            push()
+            noFill();
+            strokeWeight(7)
+            stroke("blue")
+            image(this.img[key], this.x, this.y, this.w, this.h)
+            rect(this.x, this.y, this.w, this.h + 70, 5);
+            pop()
+        
+            fill("hotPink");
             circle(this.cx, this.cy, this.d);
-
-            pop();
         }
     }
 }

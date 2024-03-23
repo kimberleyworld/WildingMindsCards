@@ -4,9 +4,11 @@ class Rectangle {
         this.y = y;
         this.w = w;
         this.h = h;
-        this.colour = "pink";
+        this.colour = "lightGreen";
         this.hasBeenPressed = false;
         this.isOver = "";
+        this.strokecolour = "green"
+
     }
 
     rollover() {
@@ -15,12 +17,12 @@ class Rectangle {
             mouseX < this.x + this.w &&
             mouseY > this.y &&
             mouseY < this.y + this.h &&
-            this.hasBeenPressed == false
+            this.hasBeenPressed == false && modal.showModal == false
         ) {
-            this.colour = "Orange";
+            this.colour = "skyBlue";
             this.Over = true;
         } else if (this.hasBeenPressed == true) {
-            this.colour = "LightSalmon";
+            this.colour = "skyBlue";
             this.over = false;
         } else {
             this.over = false;
@@ -34,7 +36,7 @@ class Rectangle {
             mouseX < this.x + this.w &&
             mouseY > this.y &&
             mouseY < this.y + this.h &&
-      this.hasBeenPressed == false
+            this.hasBeenPressed == false && modal.showModal == false
         ) {
             this.hasBeenPressed = true;
             overlayColour = 200;
@@ -44,14 +46,17 @@ class Rectangle {
 
     shake() {
         translate(random(-2, 2), random(-2, 2));
-        this.colour = "pink";
+        this.colour = "blue";
         this.over = false;
         this.hasBeenPressed = false;
     }
 
     drawRect() {
+        push()
+        stroke("blue");
         fill(this.colour);
-        noStroke();
-        rect(this.x, this.y, this.w, this.h);
+        //  noStroke();
+        rect(this.x, this.y, this.w, this.h, 10);
+        pop()
     }
 }
