@@ -8,12 +8,15 @@ let words = "Shuffle";
 let shakey = false;
 let modal;
 let overlayColour = 0;
-let cityFarm;
+
 
 
 function setup() {
-    var canvas = createCanvas(550, 550);
+    var canvas = createCanvas(500, 450);
     canvas.parent('sketchHere')
+
+    noCursor();
+
     modal = new Modal(data);
 
     button = select("#shuffleButton")
@@ -22,9 +25,10 @@ function setup() {
     for (let i = 0; i < 5; i++) {
         rectangles[i] = [];
         for (let j = 0; j < 3; j++) {
-            rectangles[i][j] = new Rectangle(i * 110 + 10, j * 160 + 30, 90, 140);
+            rectangles[i][j] = new Rectangle(i * 95 + 20, j * 140 + 20, 80, 125);
         }
     }
+
 }
 
 
@@ -32,6 +36,7 @@ function setup() {
 
 function draw() {
 
+    stroke("blue");
 
     background("AntiqueWhite");
     strokeWeight(6)
@@ -48,9 +53,11 @@ function draw() {
         }
     }
 
+
     noStroke()
     fill(250, 235, 215, overlayColour);
-    overlay = rect(6, 27, width - 13, height - 84, 10);
+    //draws an overlay when card has been selected
+    rect(0, 0, width, height, 10);
     modal.drawModal();
 
     push()
@@ -70,7 +77,8 @@ function shakeNow() {
         // shuffle the order of the array 
         modal.shake();
         button.html(buttonLabel)
-    } else {
+    }
+    else {
         buttonLabel = "Shuffle"
         button.html(buttonLabel)
     }

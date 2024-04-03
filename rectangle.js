@@ -45,8 +45,8 @@ class Rectangle {
     }
 
     shake() {
-        translate(random(-2, 2), random(-2, 2));
-        this.colour = "blue";
+        translate(random(-3, 2), 0);
+        this.colour = "lightBlue";
         this.over = false;
         this.hasBeenPressed = false;
     }
