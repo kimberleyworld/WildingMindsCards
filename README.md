@@ -2,13 +2,13 @@
 By Kimberley Dobney: written in P5.js, HTML and CSS. 
 
 
-This is a card selection tool developed for Hope Mayhew of [WildingMinds](https://www.wildingminds.co.uk/) to faciliate online workshops. The images have been chosen based on key themes in Mayhews paper and the songs are influenced by Mayhews' carfully currated spotify playlists. 
+This is a card selection tool developed for Hope Mayhew of [WildingMinds](https://www.wildingminds.co.uk/) to facilitate online workshops. The images have been chosen based on key themes in Mayhew's paper and the songs are influenced by Mayhews' carefully curated Spotify playlists. Listen to the songs in the cards [here](https://open.spotify.com/playlist/0PNIRyC40DnUfHLUIiSgqO?si=a150f7e981c54c03).
 ## How To Use: 
-- Open site in your browser and share your screen.
-- To suffle cards press shuffle.
+- Open the site in your browser and share your screen.
+- To shuffle cards press shuffle.
 - When the client says stop press the button again to stop shuffling. 
-- Ask the client which card they would like to select and click on chosen card. 
-- Discuss the content and reflect on parts that resinate
+- Ask the client which card they would like to select and click on the chosen card. 
+- Discuss the content and reflect on parts that resonate
 - Press the X in the corner of the card to exit
 - ✨Magic ✨
 
